@@ -1,9 +1,11 @@
-# Temperature Converter Desktop App
+# Binance Graph Viewer for desktop
 
-This Code is part of a blog. Please refer to the blog to make the best use of this code.
-The link to the blog is [here](https://adityasridhar.com/posts/desktop-apps-with-html-css-javascript)
+Binance Graph Desktop Viewer
+
+This project is designed to view binance graph on my desktop without login to the app in mobile or website. all Pairs of graphs supported.
 
 ## Pre-requisites
+windows 10 or supported version for electron 16+
 
 ### Install NodeJS
 
@@ -14,7 +16,7 @@ Install NodeJS from [https://nodejs.org/en/](https://nodejs.org/en/)
 Install Electron forge using the following command
 
 ```bash
-npm install -g electron-forge
+npm install 
 ```
 
 ## Cloning the Code
@@ -22,7 +24,7 @@ npm install -g electron-forge
 Clone the Code using the following command
 
 ```bash
-git clone https://github.com/aditya-sridhar/simple-desktop-app-electronjs.git
+git clone https://github.com/kingbotss/Binance-Graph.git
 ```
 
 ## Running the application
@@ -30,7 +32,7 @@ git clone https://github.com/aditya-sridhar/simple-desktop-app-electronjs.git
 Go into the project folder and run the application using the following commands
 
 ```bash
-cd simple-desktop-app-electronjs
+cd Binance-Graph
 npm install
 npm start
 ```
