@@ -4,4 +4,5 @@ puppeteer/*
 dist/*
 package-lock.json
 src/*
-yarn.lock
+./yarn.lock
+
