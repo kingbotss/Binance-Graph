@@ -2,7 +2,7 @@ node_modules/*
 out/*
 puppeteer/*
 dist/*
-package-lock.json
+/package-lock.json
 src/*
-yarn.lock
+/yarn.lock
 
