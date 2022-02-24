@@ -5,7 +5,7 @@ const dmRecordFile = new (require('./src/util/file'))('dmrecord.json');
 const BotService = require('./src/bot-service');
 const BotAgent = require('./src/bot-agent');
 const botManager = new BotService();
-
+/*this is comment*/ 
 const DMS_PER_HOUR = 55;
 const SITES_ASYNC = 30;
 const DELAY=6;
