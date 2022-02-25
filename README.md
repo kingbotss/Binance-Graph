@@ -1,5 +1,5 @@
 # Binance Graph Viewer for desktop
-
+<img src='screenshot.png' alt='Binance graph viewer for desktop'/>
 Binance Graph Desktop Viewer
 
 This project is designed to view binance graph on my desktop without login to the app in mobile or website. all Pairs of graphs supported.
