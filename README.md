@@ -3,10 +3,10 @@
 Binance Graph Desktop Viewer
 
 This project is designed to view binance graph on my desktop without login to the app in mobile or website. all Pairs of graphs supported.
-    * Supports All Fairs
-    * Points Support Upto 1000
-    * Multiple symbols
-    * Onchage Events added..
+    ..* Supports All Fairs
+    ..* Points Support Upto 1000
+    ..* Multiple symbols
+    ..* Onchage Events added..
 
 
 ## Pre-requisites
