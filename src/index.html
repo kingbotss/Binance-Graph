@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Instagram Bot</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="sweetalert.js"></script>
+  
+
+  </head>
+  <body style=" padding: 10px;" class="container">
+    <h1 class="is-size-2">Instagram Bot</h1>
+
+    <div class="columns">
+       <!--sidemenu start-->
+  
+     <!--sidemenu end-->
+    <!--content start-->
+    <aside class="column is-12">
+ 
+
+<div class="section has-background-light container">
+    <div id="login" class="  container">
+          <div class="form ">
+            <label for="usr">UserName:</label>
+            <input type="text" class="input" id="username">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="pwd">Password:</label>
+            <input type="password" class="input" id="password">
+          </div>
+          <div class="form-group col-md-3">
+            <label for="pwd">Proxy:</label>
+            <input type="text" class="input" id="proxy">
+          </div>
+          <div class="form-group col-md-3">
+          <button id="elem" class="button is-primary" style="margin:10px;">Start</button>
+          </div>
+          <div class="form-group col-md-3">
+            <textarea id="textarea" class="textarea" style="margin:10px;"></textarea>
+            </div>
+      </div>
+
+</aside>
+ <!--content-end-->
+  </div>
+</div>
+    <script src='./renderer.js'></script>
+    <script>if(getKey("username")){
+      window.location.href='stats.html';
+    }</script>
+  </body>
+  </body>
+</html>

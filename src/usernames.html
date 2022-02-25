@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Instagram Bot - Electron</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="sweetalert.js"></script>
+
+  </head>
+  <body style=" padding: 10px;" class="container">
+   
+
+    <div class="columns">
+       <!--sidemenu start-->
+    <aside class="menu column is-3">
+      <p class="menu-label">
+        General
+      </p>
+      <ul class="menu-list">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="stats.html">Stats</a></li>
+        <li><a class="is-active" href="usernames.html">Usernames</a></li>
+        <li><a href="proxy.html">Proxys</a></li>
+        <li><a href="comments.html">Comments</a></li>
+        <li><a href="tags.html">Tags</a></li>
+        <li><a class="logout" href="#">Logout</a></li>
+      </ul>
+      <p class="menu-label">
+        Administration
+      </p>
+      <ul class="menu-list">
+        <li><a>Team Settings</a></li>
+        <li>
+          <a >Manage Your Team</a>
+          <ul>
+            <li><a>Members</a></li>
+            <li><a>Plugins</a></li>
+            <li><a>Add a member</a></li>
+          </ul>
+        </li>
+      </ul>
+      <p class="menu-label">
+        Transactions
+      </p>
+      <ul class="menu-list">
+        <li><a>Payments</a></li>
+      </ul>
+    </aside>
+     <!--sidemenu end-->
+    <!--content start-->
+    <aside class="column is-9">
+ 
+
+<div class="section has-background-light container">
+    <div  class="  container">
+         
+         
+          <div class="form-group col-md-3">
+            <textarea id="getusernames" class="textarea" style="margin:10px;"></textarea>
+            </div> 
+            <div class="form-group col-md-3">
+          <button id="saveusernames" class="button is-primary" style="margin:10px;">Save Usernames</button>
+          <button id="viewusernames" class="button is-warning" style="margin:10px;">View Saved Usernames</button>
+          <button id="clear" class="button" style="margin:10px;">clear</button>
+
+          </div>
+      </div>
+
+</aside>
+ <!--content-end-->
+  </div>
+</div>
+    <script src='./renderer.js'></script>
+  </body>
+  </body>
+</html>

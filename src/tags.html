@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Instagram Bot - Electron</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="sweetalert.js"></script>
+
+  </head>
+  <body style=" padding: 10px;" class="container">
+ 
+
+    <div class="columns">
+       <!--sidemenu start-->
+    <aside class="menu column is-3">
+      <p class="menu-label">
+        General
+      </p>
+      <ul class="menu-list">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="stats.html">Stats</a></li>
+        <li><a href="usernames.html">Usernames</a></li>
+        <li><a href="proxy.html">Proxys</a></li>
+        <li><a href="comments.html">Comments</a></li>
+        <li><a class="is-active" href="tags.html">Tags</a></li>
+        <li><a class="logout" href="#">Logout</a></li>
+      </ul>
+      <p class="menu-label">
+        Administration
+      </p>
+      <ul class="menu-list">
+        <li><a>Team Settings</a></li>
+        <li>
+          <a  href="accounts.html">Manage Your Team</a>
+          <ul>
+            <li><a>Members</a></li>
+            <li><a>Plugins</a></li>
+            <li><a>Add a member</a></li>
+          </ul>
+        </li>
+      </ul>
+      <p class="menu-label">
+        Transactions
+      </p>
+      <ul class="menu-list">
+        <li><a>Payments</a></li>
+      </ul>
+    </aside>
+     <!--sidemenu end-->
+    <!--content start-->
+    <aside class="column is-9">
+ 
+
+<div class="section has-background-light container">
+    <div id="login" class="  container">
+      <div class="content">
+        <button class="button is-primary addnew">Add New</button>
+      </div>
+          <div class="form " id="tags">
+         
+           
+      </div>
+
+      <div class="content" style="margin:10px;">
+        <label class=" label is-danger" id="accountnotes"></label>
+        <button class="button is-success savetags">Save Tags</button>
+      </div>
+
+
+</div></div>
+</aside>
+ <!--content-end-->
+  </div>
+</div>
+<script>
+document.querySelector(".addnew").addEventListener("click",()=>{
+
+document.querySelector('#tags').insertAdjacentHTML("beforeend",'<div class="field is-horizontal accountid"><div class="field-body"><div class="field"><p class="control is-expanded has-icons-left"><input class="input" type="text" name="username" placeholder="Enter Tag"><span class="icon is-small is-left"><i class="fas fa-user"></i></span></p></div><div class="tags"><span class="tag is-danger deleteaccount" onclick="removeme(this)">Delete</span></div></div></div>');
+
+})
+
+
+function removeme(elem){
+elem.closest(".field.is-horizontal").remove();
+}
+</script>
+    <script src='./renderer.js'></script>
+  </body>
+  </body>
+</html>

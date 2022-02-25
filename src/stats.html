@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Instagram Bot - Electron</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="sweetalert.js"></script>
+
+  </head>
+  <body style=" padding: 15px;" class="container">
+
+
+    <div class="columns">
+       <!--sidemenu start-->
+    <aside class="menu column is-3">
+      <p class="menu-label">
+        General
+      </p>
+      <ul class="menu-list">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a class="is-active" href="stats.html">Stats</a></li>
+        <li><a href="usernames.html">Usernames</a></li>
+        <li><a href="proxy.html">Proxys</a></li>
+        <li><a href="comments.html">Comments</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="tags.html">Tags</a></li>
+        <li><a class="logout" href="#">Logout</a></li>
+      </ul>
+      <p class="menu-label">
+        Administration
+      </p>
+      <ul class="menu-list">
+        <li><a>Team Settings</a></li>
+        <li>
+          <a >Manage Your Team</a>
+          <ul>
+            <li><a>Members</a></li>
+            <li><a>Plugins</a></li>
+            <li><a>Add a member</a></li>
+          </ul>
+        </li>
+      </ul>
+      <p class="menu-label">
+        Transactions
+      </p>
+      <ul class="menu-list">
+        <li><a>Payments</a></li>
+      </ul>
+    </aside>
+     <!--sidemenu end-->
+    <!--content start-->
+    <aside class="column is-9">
+ 
+
+<div class="section has-background-light container">
+    <div id="statspage" class="  container">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-256x256">
+            <img id="statspic" class="is-rounded" style="max-width: 250px;max-height: 250px;margin: 0 auto;" src="https://bulma.io/images/placeholders/1280x960.png">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4" id="statsname">kingbots</p>
+              <p class="subtitle is-6" id="statsuser">@kingbots</p>
+            </div>
+          </div>
+      <div class="content">
+        <div class="field is-grouped is-grouped-multiline">
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-large">Media</span>
+              <span class="tag is-info is-large" id="statsmedia">0</span>
+            </div>
+          </div>
+        
+          <div class="control">
+            <div class="tags has-addons">
+              <span class="tag is-dark is-large">Followers</span>
+              <span class="tag is-success is-large" id="statsfollow">0</span>
+            </div>
+          </div>
+        
+          <div class="control">
+            <div class="tags has-addons ">
+              <span class="tag is-dark is-large">Following</span>
+              <span class="tag is-primary is-large" id="statsfollowing">0</span>
+            </div>
+          </div>
+        </div>
+        <nav class="tabs is-boxed is-fullwidth is-large">
+          <div class="container">
+            <ul>
+              <li class="tab is-active" onclick="openTab(event,'followertab')"><a>Followers</a></li>
+              <li class="tab" onclick="openTab(event,'followingtab')"><a >Following</a></li>
+            
+            </ul>
+          
+          </div>
+        </nav>
+        <div class="container section">
+          <div id="followertab" class="content-tab" >
+            <ul class="block-list is-small is-outlined is-success is-centered">
+             
+              </ul>
+       </div>
+          <div id="followingtab" class="content-tab" style="display:none">
+            <ul class="block-list is-small is-outlined is-success is-centered">
+              
+              </ul>
+                </div>
+         
+      </div>
+      </div>
+        </div>        
+        </div>
+      </div>
+      </div>
+
+</aside>
+ <!--content-end-->
+  </div>
+</div>
+    <script src='./renderer.js'></script>
+    <script>
+    if(getKey('followinglist')){
+      let list=getKey('followinglist');
+      var ar=getKey('followerslist');
+        var pks=[];
+       ar=ar.map((e)=>e.pk);
+      list.forEach(element => {
+        let f="",l='is-success';
+        if(ar.indexOf(element.pk)>0){f='<b><i style="color:tomato;">Mutual Following</i></b>';}
+
+        if(element.is_private)l='is-danger';
+        let values=' Full Name: <b>'+element.full_name+'</b> Username: <b>'+element.username+` </b><br><b class="tag ${l}">${element.is_private}</b>`;
+        document.querySelector('#followingtab>ul').insertAdjacentHTML("beforeend",'<li class="list-item">'+values+'</li>');
+  
+      });
+
+    }
+    if(getKey('followerslist')){
+      let list=getKey('followerslist'); 
+      var ar=getKey('followinglist');
+        var pks=[];
+       ar=ar.map((e)=>e.pk);
+      
+      list.forEach(element => {
+        let f="",l='is-success';
+        if(ar.indexOf(element.pk)>0){f='<b><i style="color:tomato;">Follow Back</i></b>';}
+        if(element.is_private)l='is-danger';
+        let values=' Full Name: <b>'+element.full_name+'</b> Username: <b>'+element.username+` </b><br><b class="tag ${l}">${element.is_private} </b>${f}`;
+        document.querySelector('#followertab>ul').insertAdjacentHTML("beforeend",'<li class="list-item is-outlined is-light">'+values+'</li>');
+  
+      });
+
+    }
+    function openTab(evt, tabName) {
+  var i, x, tablinks;
+  x = document.getElementsByClassName("content-tab");
+  for (i = 0; i < x.length; i++) {
+      x[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tab");
+  for (i = 0; i < x.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" is-active", "");
+  }
+  document.getElementById(tabName).style.display = "block";
+  evt.currentTarget.className += " is-active";
+}
+    </script>
+  </body>
+  </body>
+</html>

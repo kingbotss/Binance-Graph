@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Binance Graph Viewer</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/mobius1/selectr@latest/dist/selectr.min.css">
+
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light navbar-fixed">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+     
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+          <i class="fas fa-search"></i>
+        </a>
+        <div class="navbar-search-block">
+          <form class="form-inline">
+            <div class="input-group input-group-sm">
+              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-navbar" type="submit">
+                  <i class="fas fa-search"></i>
+                </button>
+                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </li>
+
+     
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+     
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">Binance Graph Viewer</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar sidebar-fixed">
+  
+  
+
+    
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+               View Charts
+              </p>
+            </a>
+    
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Simple Link
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+  
+    <!-- Main content -->
+    <div class="content">
+ 
+      <div class="card-body">
+        <form>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <!-- select -->
+              <div class="form-group">
+                <label>Coin / Token</label>
+                <select class="form-control">
+                
+                </select>
+              </div>
+            </div>
+        
+          </div>
+
+         
+        </form>
+      </div>
+      <!-- /.card-body -->
+      <div class="card-header">
+        <h3>Select Pair</h3>
+      </div>
+      <div class="card-body">
+        <div class="row">
+        <div class="col-sm-12 col-md-4 col-lg-3">
+       
+        <button class='mycustombutton btn bg-gradient-primary btn-sm' days='1m'>1m</button>
+        <button class='mycustombutton btn bg-gradient-primary btn-sm' days='15m'>15m</button>
+        <button class='mycustombutton btn bg-gradient-primary btn-sm' days='30m'>30m</button>
+        <button class='mycustombutton btn bg-gradient-primary btn-sm' days='1h'>1h</button>
+        <button class='mycustombutton btn bg-gradient-primary btn-sm' days='4h'>4h</button>
+        <button class='mycustombutton btn bg-gradient-primary btn-sm' days='6h'>6H</button>
+         <button class='mycustombutton btn bg-gradient-primary btn-sm' days='1d'>1D</button></div>
+        <div class=" col-sm-12 col-lg-3 col-md-4"><input id="candles" class="form-control" min="24" type="number" value="24" placeholder="No of Points/candle data"/></div>
+      
+      
+      </div>
+        <figure class='highcharts-figure'>
+            <div id='container' style='border:1px solid #e8e8e8;'></div>
+        </figure>
+        <style>
+        .mycustombutton{padding:8px;margin:5px;}
+        
+        .myactive{
+            background:#e8e8e8;color:black;
+        }
+        .myactive:hover{
+            background:lightgreen;
+        }
+        .highcharts-figure, .highcharts-data-table table {
+           width:100%;
+            margin: 1em auto;
+        }
+        
+        .highcharts-data-table table {
+            font-family: Verdana, sans-serif;
+            border-collapse: collapse;
+            border: 1px solid #EBEBEB;
+            margin: 10px auto;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+        }
+        .highcharts-data-table caption {
+            padding: 1em 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+        .highcharts-data-table th {
+            font-weight: 600;
+            padding: 0.5em;
+        }
+        .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
+            padding: 0.5em;
+        }
+        .highcharts-data-table thead tr, .highcharts-data-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+        .highcharts-data-table tr:hover {
+            background: #f1f7ff;
+        }
+        </style>
+    
+       
+
+
+      </div>
+    
+    </div>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+ 
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="float-right d-none d-sm-inline">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy;2021 <a href="#">MaheshJames</a>.</strong> All rights reserved.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED SCRIPTS -->
+
+<!-- jQuery -->
+
+<script src="./plugins/jquery/jquery.min.js"></script>
+
+<!-- Bootstrap 4 -->
+<script src="./plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- AdminLTE App -->
+<script src="./dist/js/adminlte.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/mobius1/selectr@latest/dist/selectr.min.js"></script>
+<script src='https://code.highcharts.com/highcharts.js'></script><script src='https://code.highcharts.com/modules/series-label.js'></script><script src='https://code.highcharts.com/modules/export-data.js'></script><script src='https://code.highcharts.com/modules/accessibility.js'></script>
+
+
+<script language = "JavaScript">
+   $(document).ready(function() {
+    
+
+if(!Storage){
+console.log('storage not supported.');
+}
+if(localStorage.symbols===undefined){
+
+  $.ajax({url:'https://www.binance.com/bapi/asset/v2/public/asset-service/product/get-products?includeEtf=false',
+dataType:'json',success:(data)=>{
+
+  let sym=[];
+  let ar=data.data;
+  ar.map((item)=>{
+    let value=item.s;
+    let text=item.an+' '+item.b+'/'+item.q;
+    sym.push({value,text});
+  });
+  let news=new Selectr('select', {
+    searchable: true
+});
+news.add(sym);
+localStorage.symbols=JSON.stringify(sym);
+}});
+}else{
+  let news=new Selectr('select', {
+    searchable: true
+});
+news.add(JSON.parse(localStorage.symbols));
+if(localStorage.symbolpair){
+ news.setValue(localStorage.symbolpair);
+     }
+}
+  
+   });
+</script>
+
+<script type='text/javascript'> 
+jQuery('.mycustombutton').on('click',function(){
+    var id=jQuery(this);
+    var symbol = document.querySelector('select').value;
+    if(!symbol) {alert('Choose a Pair'); return false;}
+    jQuery('#container').text('Graph is Loading....(try again in 3 secs)');
+    jQuery('.myactive').removeClass('myactive');
+    id.addClass('myactive');
+   
+   callgraph(id.attr('days'))
+});
+
+function callgraph(days=1){ 
+  var symbol = document.querySelector('select').value;
+console.log(symbol);
+var limit = document.querySelector('input#candles').value;
+if(limit<24)limit=24;
+if(limit>1000)limit=1000;
+var names = document.querySelector(`option[value=${symbol}]`).text;
+document.getElementsByTagName('h3')[0].innerText=names+" Chart:";
+var days=days;
+
+jQuery.ajax({
+                            url: 'https://www.binance.com/api/v3/klines?limit='+limit+'&symbol='+symbol+'&interval=' + days,
+                            method: 'GET',
+                            dataType: 'json',
+                           
+                            complete: function (data) {
+                                var data = JSON.parse(data.responseText);	
+                                var gra=[];
+                                for (var key in data) {
+                                                                        let price=data[key][2] = parseFloat(data[key][2]);
+                                  let timer=data[key][0];
+                                  gra.push([timer,price])
+                                                                        
+                                }
+                        
+                                renderGraph(gra);
+                            }
+                        });
+
+                        localStorage.symbolpair=symbol;
+                    }
+
+function renderGraph(data) {
+                    Highcharts.chart('container', {
+                        legend: {enabled: false},
+                        credits: {enabled: false},
+                        chart: {
+                            backgroundColor: '#ffffff',
+                            height: 550,
+                        },
+                        title: {text: ''},
+                        subtitle: {},
+                        xAxis: {type: 'datetime'},
+                        yAxis: {
+                            title: {
+                                text: 'Price '
+                            }
+                        },
+                        responsive: {
+                            rules: [{
+                                condition: {maxWidth: 500},
+                                chartOptions: {
+                                    yAxis: {
+                                        labels: {
+                                            align: 'left',
+                                            x: 0,
+                                            y: -2
+                                        },
+                                        title: {
+                                            text: ''
+                                        }
+                                    }
+                                }
+                            }]
+                        },
+                        series: [{
+                                type: 'line',
+                                id: 'prices-volume',
+                                name: 'Price',
+                                data: data,
+                                color: '#0ba523',
+                                label: {
+                                    enabled: false
+                                },
+                                tooltip: {
+                                    useHTML: true,
+                                    xDateFormat: '%H:%M %A, %e %b %Y',
+                                    pointFormat: '<strong>{point.y} </strong>'
+                                }
+                            }]
+                    });
+                }</script>
+ 
+
+
+</body>
+</html>
