@@ -150,7 +150,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <button class='mycustombutton btn bg-gradient-primary btn-sm' days='4h'>4h</button>
         <button class='mycustombutton btn bg-gradient-primary btn-sm' days='6h'>6H</button>
          <button class='mycustombutton btn bg-gradient-primary btn-sm' days='1d'>1D</button></div>
-        <div class=" col-sm-12 col-lg-3 col-md-4"><input id="candles" class="form-control" min="24" type="number" value="24" placeholder="No of Points/candle data"/></div>
+        <div class=" col-sm-12 col-lg-3 col-md-4">
+          <input id="candles" class="form-control" min="24" type="number" value="24" placeholder="No of Points/candle data"/></div>
       
       
       </div>
@@ -227,6 +228,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
 
 <script src="./plugins/jquery/jquery.min.js"></script>
 
@@ -288,6 +290,14 @@ jQuery('.mycustombutton').on('click',function(){
    
    callgraph(id.attr('days'))
 });
+setTimeout(()=>{
+  document.querySelector('button[days="15m"]').click()
+},2000)
+
+document.querySelector('select').addEventListener('change',readyto);
+ function readyto(){ 
+   document.querySelector('button[days="15m"]').click()
+}
 
 function callgraph(days=1){ 
   var symbol = document.querySelector('select').value;

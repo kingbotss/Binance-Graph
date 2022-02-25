@@ -25,7 +25,8 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true, // is default value after Electron v5
       contextIsolation: false, // protect against prototype pollution
- 
+ //enableBlinkFeatures:true,
+ webSecurity:false
    //  preload: path.join(__dirname, "renderer.js") // use a preload script
     }
 
@@ -36,7 +37,7 @@ const createWindow = () => {
 
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  //mainWindow.webContents.openDevTools();
 
 
   // Emitted when the window is closed.
