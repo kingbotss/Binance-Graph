@@ -5,5 +5,5 @@ dist/*
 package-lock.json
 #exlude
 chromepath.*
-.gitignore
+
 .eslintrc
