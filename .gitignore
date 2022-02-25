@@ -4,6 +4,7 @@ puppeteer/*
 dist/*
 package-lock.json
 chromepath.js
+/src/Bot/*
 
 
 
