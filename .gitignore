@@ -2,12 +2,9 @@ node_modules/*
 out/*
 puppeteer/*
 dist/*
-
 package-lock.json
 
 chromepath.*
 .gitignore
 .eslintrc
 .compilerc
-
-
