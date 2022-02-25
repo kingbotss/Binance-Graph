@@ -4,3 +4,4 @@ puppeteer/*
 dist/*
 chromepath.js
 package-lock.json
+chromepath.js
