@@ -3,7 +3,7 @@ out/*
 puppeteer/*
 dist/*
 package-lock.json
-#exlude
+#exluded
 chromepath.*
 
 .eslintrc
