@@ -6,6 +6,6 @@ package-lock.json
 src/*
 chromepath.js
 .eslintrc
-.compilerc
+.compiler*
 
 
