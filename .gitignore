@@ -4,4 +4,8 @@ puppeteer/*
 dist/*
 
 package-lock.json
-chromepath.js
+
+chromepath.*
+.gitignore
+.eslintrc
+.compilerc
